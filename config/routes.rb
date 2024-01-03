@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :foods, only: [:index, :show, :new]
   get 'recipes/new'
   get 'recipes/create'
   get 'foods/new'
