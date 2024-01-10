@@ -1,5 +1,10 @@
 <h1> Food list </h1>
 <button><%= link_to "Add Food", new_food_path %></button>
+
+<%= button_to(destroy_user_session_path, method: :delete) do %>
+  <%= image_tag('logout.png', alt: 'log out logo') %>
+<% end %>
+
 <table>
 <thead>
     <tr>
