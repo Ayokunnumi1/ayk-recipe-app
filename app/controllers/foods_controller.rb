@@ -1,6 +1,11 @@
 class FoodsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @foods = Food.all
+  end
+
+  def show
   end
 
   def new
@@ -17,6 +22,12 @@ class FoodsController < ApplicationController
       puts @food_form.errors.full_messages
       render :new
     end
+  end
+
+  def destroy
+  @food = current_user.foods.find(params[:id])
+  @food.destroy
+  redirect_to foods_path, notice: 'Food item was successfully deleted.'
   end
 
   private

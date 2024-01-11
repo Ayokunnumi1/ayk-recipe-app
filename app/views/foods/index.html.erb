@@ -3,25 +3,34 @@
 <h1> Food list </h1>
 <button><%= link_to "Add Food", new_food_path %></button>
 
-<table>
-<thead>
-    <tr>
-    <th>Name</th>
-    <th>Measurement Unit</th>
-    <th>Unit Price</th>
-    <th>Actions</th>
-    </tr>
-</thead>
-
-<tbody>
-    <% @foods.each do |food| %>
+<div>
+    <% if @foods.empty? %>
+    <p> No Food Available </p>
+    <% else %>
+    <table>
+    <thead>
         <tr>
-        <td><%= food.name %></td>
-        <td><%= food.measurement_unit %></td>
-        <td><%= food.price %></td> 
-      </tr>
+        <th>Name</th>
+        <th>Measurement Unit</th>
+        <th>Unit Price</th>
+        <th>Actions</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        <% @foods.each do |food| %>
+            <tr>
+            <td><%= food.name %></td>
+            <td><%= food.measurement_unit %></td>
+            <td><%= food.price %></td>
+            <td>
+              <%= link_to 'Delete', food_path(food), method: :delete, data: { confirm: 'Are you sure?' } %>
+            </td>
+          </tr>
+        <% end %>
+    </tbody>
+    </table>
     <% end %>
-</tbody>
-</table>
+</div>
 
 <button><%= link_to 'Create Recipe', new_recipe_path %></button>
