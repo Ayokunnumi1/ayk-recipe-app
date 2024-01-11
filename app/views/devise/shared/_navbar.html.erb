@@ -1,0 +1,11 @@
+<section class= "navbar-section">
+    <div>
+    <%= button_to(destroy_user_session_path, method: :delete) do %>
+    <%= image_tag('logout.png', alt: 'log out logo') %>
+    <% end %>
+    </div>
+
+    <%= link_to 'Foods', foods_path %>
+    <%= link_to 'Recipes', recipes_path %>
+    <p>Public Recipe</p>
+</section>
