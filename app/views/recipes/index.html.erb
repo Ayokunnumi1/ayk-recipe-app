@@ -1,7 +1,9 @@
 <%= render 'devise/shared/navbar' %>
 
 <section class="recipe-list-container">
-    <% @recipes.each do |recipe| %>
+<button><%= link_to 'Create Recipe', new_recipe_path %></button>
+
+<% @recipes.each do |recipe| %>
         <div class="recipe-content">
             <p><%= link_to recipe.name, recipe_path(recipe) %></p>
             <p><%= button_to 'Remove', recipe_path(recipe.id), method: :delete, data: { confirm: 'Are you sure?' } %></p>

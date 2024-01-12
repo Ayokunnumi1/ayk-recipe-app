@@ -12,6 +12,9 @@
     
     <%= form.label :description, 'Description', class: "" %>
     <%= form.text_field :description %><br />
+
+    <%= form.label :Public, 'Public' %>
+    <%= form.check_box :is_public %><br />
     
     <%= form.submit 'Submit Food', class: "" %>
 <% end %>
