@@ -31,6 +31,10 @@ class RecipesController < ApplicationController
   redirect_to recipes_path, notice: 'Recipe was successfully deleted.'
   end
 
+  def shopping_list
+  @recipe = Recipe.find(params[:id])
+  end
+
   private
 
   def recipe_params

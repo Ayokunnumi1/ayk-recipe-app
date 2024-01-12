@@ -1,0 +1,23 @@
+<%= render 'devise/shared/navbar' %>
+
+<section>
+  <table>
+      <thead>
+          <tr>
+          <th>Food</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          </tr>
+      </thead>
+  
+      <tbody>
+          <% @recipe.recipe_foods.each do |recipe_food| %>
+      <tr>
+        <td><%= recipe_food.food.name %></td>
+        <td><%= recipe_food.quantity %></td>
+        <td><%= recipe_food.food.price %></td>
+      </tr>
+    <% end %>
+      </tbody>
+      </table>
+</section>
