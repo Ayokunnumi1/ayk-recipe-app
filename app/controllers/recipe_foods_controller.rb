@@ -20,6 +20,19 @@ class RecipeFoodsController < ApplicationController
   redirect_to recipe_path(@recipe_food.recipe_id), notice: 'Food item was successfully deleted.'
   end
 
+  def edit
+  @recipe_food = RecipeFood.find(params[:id])
+  end
+
+  def update
+  @recipe_food = RecipeFood.find(params[:id])
+  if @recipe_food.update(recipe_food_params)
+    redirect_to recipe_path(@recipe_food.recipe_id), notice: 'Food item was successfully updated.'
+  else
+    render :edit
+  end
+end
+
   private
 
   def recipe_food_params
