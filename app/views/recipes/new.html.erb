@@ -1,6 +1,6 @@
 <h1>Recipe Form</h1>
 
-<%= form_with(model:@recipe_form, url: recipes_path, local: true) do |form| %>
+<%= form_with(model:@recipe, url: recipes_path, local: true) do |form| %>
     <%= form.label :name, 'Recipe Name:', class: "" %>
     <%= form.text_field :name %><br />
 
