@@ -3,5 +3,15 @@
 <p> Preparation time: <%= @recipe.preparation_time %></p>
 <p> Cooking time: <%= @recipe.cooking_time %></p>
 <p>Steps go here...</p>
+<div> <% if @recipe.is_public %>
+       <%= 'Public' %>
+         <% else %>
+         <%= 'Private' %>
+        <% end %>
+    <label class="switch">
+      <%= check_box_tag 'is_public', 'true', @recipe.is_public, disabled: true, class: "slider round" %>
+      <span class="slider round"></span>
+    </label>
+</div>
 <button>Generate Shopping List</button>
 <button>Add Ingredients</button>
