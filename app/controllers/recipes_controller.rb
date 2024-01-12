@@ -1,7 +1,9 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_user!
   load_and_authorize_resource
+  
   def index
-    @recipes = Recipe.all
+    @recipes = current_user.recipes
   end
 
   def show
@@ -9,12 +11,12 @@ class RecipesController < ApplicationController
   end
 
   def new
-    @recipe_form = Recipe.new
+    @recipe = Recipe.new
   end
 
   def create
-    @recipe_form = current_user.recipes.build(recipe_form_params)
-    if @recipe_form.save
+    @recipe = current_user.recipes.build(recipe_params)
+    if @recipe.save
       flash[:success] = 'Recipe Successfully Added'
       redirect_to recipes_path
     else
@@ -23,9 +25,15 @@ class RecipesController < ApplicationController
     end
   end
 
+  def destroy
+  @recipe = current_user.recipes.find(params[:id])
+  @recipe.destroy
+  redirect_to recipes_path, notice: 'Recipe was successfully deleted.'
+  end
+
   private
 
-  def recipe_form_params
+  def recipe_params
     params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :is_public, :quantity)
   end
 end

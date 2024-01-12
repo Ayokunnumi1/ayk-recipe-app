@@ -4,6 +4,7 @@
     <% @recipes.each do |recipe| %>
         <div class="recipe-content">
             <p><%= link_to recipe.name, recipe_path(recipe) %></p>
+            <p><%= button_to 'Remove', recipe_path(recipe.id), method: :delete, data: { confirm: 'Are you sure?' } %></p>
             <p><%= recipe.description %></p>
         </div>
         <% end %>
