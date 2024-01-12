@@ -1,25 +1,26 @@
 class FoodsController < ApplicationController
   before_action :authenticate_user!
-
+  load_and_authorize_resource
+  
   def index
-    @foods = Food.all
+  @foods = current_user.foods
   end
 
   def show
   end
 
   def new
-    @food_form = Food.new
+    @food = Food.new
   end
 
   def create
-    @food_form = current_user.foods.build(food_form_params)
-    if @food_form.save
+    @food = current_user.foods.build(food_params)
+    if @food.save
       flash[:success] = 'Food saved successfully'
       redirect_to foods_path
     else
       flash[:error] = 'Food Not Saved, try again later'
-      puts @food_form.errors.full_messages
+      puts @food.errors.full_messages
       render :new
     end
   end
@@ -32,8 +33,8 @@ class FoodsController < ApplicationController
 
   private
 
-  def food_form_params
-    params.require(:food).permit(:name, :measurement_unit, :price, :quantity)
+  def food_params
+  params.require(:food).permit(:name, :measurement_unit, :price)
   end
 
 end
