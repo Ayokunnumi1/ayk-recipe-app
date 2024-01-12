@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'recipe_foods/new'
+  get 'recipe_foods/create'
   devise_for :users
  
   get "up" => "rails/health#show", as: :rails_health_check
