@@ -1,0 +1,12 @@
+<%= render 'devise/shared/navbar' %>
+
+<section>
+  <% @users.each do |user| %>
+    <% user.recipes.each do |recipe| %>
+      <p><%= recipe.name %></p>
+      <p>By: <%= user.name %></p>
+    <% end %>
+    <p>Total Foods: <%= user.foods.count %></p>
+    <p>Total Price: <%= user.foods.sum(:price) %></p>
+  <% end %>
+</section>

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'public_recipe/index'
   devise_for :users
  
   get "up" => "rails/health#show", as: :rails_health_check
@@ -8,4 +7,5 @@ Rails.application.routes.draw do
   resources :users, only: [:index]
   resources :foods, only: [:index, :show, :new, :create, :destroy]
   resources :recipes, only: [:index, :show, :new, :create, :destroy]
+  resources :public_recipes, only: [:index, :show]
 end
