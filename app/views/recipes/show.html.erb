@@ -14,4 +14,19 @@
     </label>
 </div>
 <button>Generate Shopping List</button>
-<button>Add Ingredients</button>
+<button><%= link_to 'Add Ingredients', new_ingredient_path, class: "" %></button>
+
+<table>
+    <thead>
+        <tr>
+        <th>Ingredient Name</th>
+        <th>Quantity</th>
+        <th>Value</th>
+        <th>Actions</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        <td>Ingredient Name</td>
+    </tbody>
+    </table>
