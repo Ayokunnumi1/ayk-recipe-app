@@ -4,6 +4,8 @@ ruby "3.2.2"
 
 gem 'rails-controller-testing'
 
+gem 'dotenv-rails', groups: [:development, :test]
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.2"
 
