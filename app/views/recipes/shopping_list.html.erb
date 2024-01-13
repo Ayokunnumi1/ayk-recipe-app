@@ -1,5 +1,8 @@
 <%= render 'devise/shared/navbar' %>
 
+<p>Amount of food items to buy:<%= @recipe.recipe_foods.count %></p>
+<p>Total Value of food needed:<%= @recipe.recipe_foods.sum { |recipe_food| recipe_food.food.price } %></p>
+
 <section>
   <table>
       <thead>
