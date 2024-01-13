@@ -2,7 +2,7 @@
 
 <section>
   <% @users.each do |user| %>
-    <% user.recipes.each do |recipe| %>
+    <% user.recipes.where(is_public: true).each do |recipe| %>
       <p><%= recipe.name %></p>
       <p>By: <%= user.name %></p>
     <% end %>
