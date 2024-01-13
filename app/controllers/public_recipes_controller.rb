@@ -4,3 +4,5 @@ class PublicRecipesController < ApplicationController
     @users = User.all
   end
 end
+
+
