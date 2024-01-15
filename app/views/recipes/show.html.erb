@@ -20,8 +20,9 @@
     <thead>
         <tr>
         <th>Food</th>
+        <th>Recipe</th>
         <th>Quantity</th>
-        <th>Value</th>
+        <th>Price</th>
         <th>Actions</th>
         </tr>
     </thead>
@@ -30,6 +31,7 @@
         <% @recipe.recipe_foods.each do |recipe_food| %>
     <tr>
       <td><%= recipe_food.food.name %></td>
+      <td><%= recipe_food.recipe.name %></td>
       <td><%= recipe_food.quantity %></td>
       <td><%= recipe_food.food.price %></td>
       <td>
