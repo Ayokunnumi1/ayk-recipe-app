@@ -1,0 +1,12 @@
+.sign_in_section {
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ align-items: center;
+ height: 100vh;
+}
+
+.sign_in_recipe img {
+    width: 30%;
+    height: 30%;
+}
